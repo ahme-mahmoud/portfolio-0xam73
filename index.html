@@ -184,11 +184,17 @@ nav.scrolled{
 .hero-label::before{content:'';width:28px;height:1px;background:var(--accent)}
 .hero-h1{
   font-family:var(--display);
-  font-size:clamp(3.5rem,9vw,8rem);
+  font-size:clamp(2rem,9vw,8rem);
   font-weight:800;line-height:.92;
   letter-spacing:-.03em;
   color:#fff;margin-bottom:1.5rem;
   opacity:0;animation:up .8s .2s cubic-bezier(.22,1,.36,1) forwards;
+}
+@media(max-width:480px){
+  .hero-h1{font-size:clamp(2rem,13vw,3.2rem);letter-spacing:-.02em}
+}
+@media(max-width:360px){
+  .hero-h1{font-size:11vw}
 }
 .hero-h1 span{
   color:var(--accent);
@@ -233,6 +239,25 @@ nav.scrolled{
 .btn-a{background:var(--accent);color:#0a0a0a}
 .btn-a:hover{background:#d8ff70;box-shadow:0 0 20px var(--accent-glow)}
 .btn-b{background:transparent;color:var(--muted);border:1px solid var(--line2)}
+.btn-b:hover{border-color:var(--muted);color:var(--text)}
+.btn-cv{border-color:rgba(200,240,96,.25);color:var(--accent)}
+.btn-cv:hover{border-color:var(--accent);background:var(--accent-dim);box-shadow:0 0 16px var(--accent-glow)}
+.btn-cv-about{
+  font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;
+  text-transform:uppercase;padding:.65rem 1.3rem;
+  border-radius:2px;
+  display:inline-flex;align-items:center;gap:.5rem;
+  margin-top:1.6rem;
+  border:1px solid rgba(200,240,96,.25);
+  color:var(--accent);background:var(--accent-dim);
+  transition:all .25s;
+}
+.btn-cv-about:hover{
+  border-color:var(--accent);
+  background:rgba(200,240,96,.16);
+  box-shadow:0 0 20px var(--accent-glow);
+  transform:translateY(-1px);
+}
 .btn-b:hover{border-color:var(--muted);color:var(--text)}
 .hero-bottom{
   position:absolute;bottom:2.5rem;left:2rem;right:2rem;
@@ -382,7 +407,7 @@ section{padding:7rem 0;border-top:1px solid var(--line)}
   display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;
   background:var(--line);border:1px solid var(--line);
 }
-@media(max-width:800px){.skills-layout{grid-template-columns:1fr 1fr}}
+@media(max-width:900px){.skills-layout{grid-template-columns:1fr 1fr}}
 @media(max-width:500px){.skills-layout{grid-template-columns:1fr}}
 .sk-cell{background:var(--bg);padding:1.8rem;transition:background .25s}
 .sk-cell:hover{background:#0e0e11}
@@ -587,13 +612,31 @@ footer{
 /* ── MOBILE ── */
 @media(max-width:480px){
   .wrap{padding:0 1.2rem}
-  .hero-h1{font-size:3rem}
-  .hero-bottom{position:relative;bottom:auto;left:auto;right:auto;margin-top:3rem}
-  .hero-stats{gap:1.5rem}
-  section{padding:4.5rem 0}
+  .hero-bottom{
+    position:relative;bottom:auto;left:auto;right:auto;
+    margin-top:2.5rem;
+    display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start;
+  }
+  .hero-stats{
+    display:flex;gap:1.8rem;flex-wrap:nowrap;width:100%;
+  }
+  .stat-wrap{flex:1;min-width:0}
+  .hero-stat-n{font-size:1.7rem}
+  .hero-stat-n em{font-size:1.1rem}
+  .hero-stat-l{font-size:.5rem}
+  #hero{
+    min-height:auto;
+    padding-top:5rem;
+    padding-bottom:3rem;
+  }
+  section{padding:4rem 0}
   .sec-header{margin-bottom:2.5rem}
   body{cursor:auto}
   #cursor{display:none}
+}
+@media(max-width:360px){
+  .hero-stats{gap:1.2rem}
+  .hero-stat-n{font-size:1.4rem}
 }
 
 /* Scanline easter egg on hover over name */
@@ -661,6 +704,12 @@ footer{
       <div class="hero-btns">
         <a href="#projects" class="btn btn-a">View Projects</a>
         <a href="#experience" class="btn btn-b">Experience</a>
+        <a href="./CV_Ahmed_Mahmoud.pdf" download class="btn btn-b btn-cv">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="flex-shrink:0">
+            <path d="M6 1v7M3 6l3 3 3-3M1 10h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download CV
+        </a>
         <a href="https://github.com/ahme-mahmoud" target="_blank" rel="noopener" class="btn btn-b">GitHub ↗</a>
       </div>
     </div>
@@ -693,18 +742,24 @@ footer{
     </div>
     <div class="about-grid">
       <div class="reveal d1">
-        <p class="about-p">I'm <strong>Ahmed Mahmoud</strong>, a cybersecurity student and penetration tester focused on web and API security, vulnerability research, and building AI-driven detection tools.</p>
-        <p class="about-p">My work sits at the intersection of <strong>offensive security and machine learning</strong> — I design systems that analyse network behaviour, detect anomalies, and help analysts identify threats in real time.</p>
-        <p class="about-p">Currently studying Network & Cybersecurity at <strong>Elsewedy University of Technology</strong> while hunting bugs on HackerOne and building research-grade security tooling.</p>
+        <p class="about-p">I'm <strong>Ahmed Mahmoud</strong>, a penetration tester focused on web, API, and network penetration testing, vulnerability research, digital forensics, and ML-based threat detection.</p>
+        <p class="about-p">My work combines <strong>offensive security with machine learning</strong> — I build systems for network traffic analysis, anomaly detection, and real-time threat monitoring using practical security and AI workflows.</p>
+        <p class="about-p">Currently studying Network & Cybersecurity at <strong>Elsewedy University of Technology</strong>, while working on hands-on cybersecurity projects, bug bounty practice, and security research.</p>
         <div class="about-tags">
-          <span class="tag">Web Pentesting</span>
+          <span class="tag">Web Penetration Testing</span>
           <span class="tag">API Security</span>
-          <span class="tag">AI Threat Detection</span>
-          <span class="tag">Bug Bounty</span>
-          <span class="tag">Network Forensics</span>
-          <span class="tag">Vuln Research</span>
-          <span class="tag">Security Tooling</span>
+          <span class="tag">Network Penetration Testing</span>
+          <span class="tag">Digital Forensics</span>
+          <span class="tag">ML-Based Threat Detection</span>
+          <span class="tag">Bug Bounty Hunting</span>
+          <span class="tag">Vulnerability Research</span>
         </div>
+        <a href="./CV_Ahmed_Mahmoud.pdf" download class="btn btn-cv-about">
+          <svg width="13" height="13" viewBox="0 0 12 12" fill="none" style="flex-shrink:0">
+            <path d="M6 1v7M3 6l3 3 3-3M1 10h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download CV
+        </a>
       </div>
       <div class="reveal d2">
         <div class="id-card">
@@ -774,7 +829,7 @@ footer{
           <div class="exp-type live">● Active</div>
         </div>
         <div>
-          <div class="exp-role">Machine Learning Intern</div>
+          <div class="exp-role">ML Engineer Intern</div>
           <div class="exp-org">DEPI — Digital Egypt Pioneers</div>
           <p class="exp-desc">Training ML models for cybersecurity — classification, anomaly detection, and sequence models applied to network traffic analysis. Building real-time threat scoring pipelines.</p>
           <div class="exp-tools">
@@ -828,47 +883,82 @@ footer{
     </div>
     <div class="skills-layout reveal d1">
       <div class="sk-cell">
-        <div class="sk-cell-label">Offensive</div>
+        <div class="sk-cell-label">Offensive Security</div>
         <div class="sk-pills">
           <span class="sp hi">Web App Pentesting</span>
           <span class="sp hi">Network Pentesting</span>
-          <span class="sp hi">API Exploitation</span>
-          <span class="sp">Bug Bounty</span>
-          <span class="sp">Priv. Escalation</span>
-          <span class="sp">Vuln Chaining</span>
-          <span class="sp">IDOR / Logic Flaws</span>
-          <span class="sp">SSRF / XXE</span>
-          <span class="sp">SQLi / XSS / SSTI</span>
+          <span class="sp hi">API Security Testing</span>
+          <span class="sp">Bug Bounty Hunting</span>
+          <span class="sp">Vulnerability Assessment</span>
+          <span class="sp">IDOR & Logic Flaws</span>
+          <span class="sp">SQL Injection (SQLi)</span>
+          <span class="sp">Cross-Site Scripting (XSS)</span>
+          <span class="sp">SSRF</span>
         </div>
       </div>
       <div class="sk-cell">
-        <div class="sk-cell-label">AI / ML</div>
+        <div class="sk-cell-label">AI / ML Security</div>
         <div class="sk-pills">
           <span class="sp hi">Anomaly Detection</span>
           <span class="sp hi">Traffic Classification</span>
-          <span class="sp">Botnet Detection</span>
+          <span class="sp hi">Threat Detection Systems</span>
+          <span class="sp">Network Traffic Analysis</span>
           <span class="sp">SHAP Explainability</span>
           <span class="sp">TensorFlow</span>
           <span class="sp">PyTorch</span>
           <span class="sp">scikit-learn</span>
           <span class="sp">LightGBM</span>
           <span class="sp">XGBoost</span>
+          <span class="sp">Random Forest</span>
+          <span class="sp">Autoencoders</span>
+          <span class="sp">Pandas</span>
+          <span class="sp">NumPy</span>
+          <span class="sp">Matplotlib</span>
+          <span class="sp">Streamlit</span>
         </div>
       </div>
       <div class="sk-cell">
-        <div class="sk-cell-label">Tools & Code</div>
+        <div class="sk-cell-label">Recon & Tooling</div>
         <div class="sk-pills">
-          <span class="sp hi">Python</span>
           <span class="sp hi">Burp Suite</span>
-          <span class="sp">Bash</span>
+          <span class="sp hi">Nuclei</span>
+          <span class="sp">ffuf</span>
+          <span class="sp">Katana</span>
+          <span class="sp">Amass</span>
+          <span class="sp">Subfinder</span>
+          <span class="sp">httpx</span>
+          <span class="sp">Naabu</span>
+          <span class="sp">SQLMap</span>
           <span class="sp">Metasploit</span>
           <span class="sp">Nmap</span>
           <span class="sp">Wireshark</span>
           <span class="sp">Suricata</span>
-          <span class="sp">Docker</span>
-          <span class="sp">Flask</span>
-          <span class="sp">Streamlit</span>
+        </div>
+      </div>
+      <div class="sk-cell">
+        <div class="sk-cell-label">Languages & Dev</div>
+        <div class="sk-pills">
+          <span class="sp hi">Python</span>
+          <span class="sp hi">Bash</span>
           <span class="sp">JavaScript</span>
+          <span class="sp">PHP</span>
+          <span class="sp">Java</span>
+          <span class="sp">HTML5</span>
+          <span class="sp">CSS3</span>
+          <span class="sp">Flask</span>
+          <span class="sp">Laravel</span>
+          <span class="sp">Node.js</span>
+        </div>
+      </div>
+      <div class="sk-cell">
+        <div class="sk-cell-label">Infrastructure & Cloud</div>
+        <div class="sk-pills">
+          <span class="sp hi">Docker</span>
+          <span class="sp">AWS</span>
+          <span class="sp">Google Cloud</span>
+          <span class="sp">Apache</span>
+          <span class="sp">Nginx</span>
+          <span class="sp">Kali Linux</span>
         </div>
       </div>
     </div>
@@ -1176,7 +1266,7 @@ document.querySelectorAll('.proj-card').forEach(card=>{
 });
 
 /* ── TYPING ANIMATION (hero label) ── */
-const roles = ['Penetration Tester','AI Security Engineer','Vuln Researcher'];
+const roles = ['Penetration Tester','Red Team Operator','AI Security Engineer','Vuln Researcher'];
 const typed = document.getElementById('typed-role');
 let ri=0, ci=0, deleting=false;
 function type(){
