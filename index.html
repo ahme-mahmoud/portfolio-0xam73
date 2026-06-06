@@ -51,7 +51,7 @@ button{cursor:none}
   pointer-events:none;
 }
 
-/* ── [NEW] BACK TO TOP ── */
+/* ── BACK TO TOP ── */
 #back-top{
   position:fixed;bottom:2rem;right:2rem;z-index:200;
   width:36px;height:36px;border-radius:2px;
@@ -163,7 +163,7 @@ nav.scrolled{
 .nav-links a.active::after,.nav-links a:hover::after{transform:scaleX(1)}
 @media(max-width:700px){.nav-links{display:none}}
 
-/* ── [NEW] HAMBURGER ── */
+/* ── HAMBURGER ── */
 .nav-ham{
   display:none;
   width:36px;height:36px;
@@ -179,7 +179,7 @@ nav.scrolled{
 .nav-ham.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg);background:var(--accent)}
 @media(max-width:700px){.nav-ham{display:flex}}
 
-/* ── [NEW] MOBILE FULLSCREEN MENU ── */
+/* ── MOBILE FULLSCREEN MENU ── */
 .mobile-menu{
   position:fixed;inset:0;z-index:99;
   background:rgba(7,7,9,.97);
@@ -201,6 +201,8 @@ nav.scrolled{
 .mobile-menu.open a:nth-child(3){transition-delay:.15s}
 .mobile-menu.open a:nth-child(4){transition-delay:.2s}
 .mobile-menu.open a:nth-child(5){transition-delay:.25s}
+.mobile-menu.open a:nth-child(6){transition-delay:.3s}
+.mobile-menu.open a:nth-child(7){transition-delay:.35s}
 .mobile-menu a:hover{color:var(--accent)}
 
 .btn-hire{
@@ -350,7 +352,7 @@ section{padding:7rem 0;border-top:1px solid var(--line)}
 .live-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);animation:pulse-dot 2s ease-in-out infinite}
 @keyframes pulse-dot{0%,100%{opacity:1;box-shadow:0 0 0 0 var(--accent-glow)}50%{opacity:.4;box-shadow:0 0 0 4px transparent}}
 
-/* ── [NEW] EXPERIENCE TIMELINE ── */
+/* ── EXPERIENCE TIMELINE ── */
 .timeline{position:relative;padding-left:2rem}
 .timeline::before{
   content:'';position:absolute;left:0;top:.6rem;bottom:.6rem;
@@ -398,7 +400,7 @@ section{padding:7rem 0;border-top:1px solid var(--line)}
 .sp.hi{border-color:rgba(200,240,96,.22);color:var(--accent);background:var(--accent-dim)}
 .sp.hi:hover{border-color:rgba(200,240,96,.4);box-shadow:0 0 8px var(--accent-glow)}
 
-/* ── [NEW] PROJECTS FILTER ── */
+/* ── PROJECTS FILTER ── */
 .proj-filters{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.5rem}
 .pf-btn{
   font-family:var(--mono);font-size:.6rem;letter-spacing:.08em;
@@ -437,16 +439,61 @@ section{padding:7rem 0;border-top:1px solid var(--line)}
 .proj-stack{display:flex;flex-wrap:wrap;gap:.28rem}
 .pt{font-family:var(--mono);font-size:.56rem;padding:.13rem .45rem;background:#111113;border:1px solid var(--line);color:var(--muted);border-radius:1px}
 
-/* ── CERTS / EDU ── */
-.certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-@media(max-width:800px){.certs-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:450px){.certs-grid{grid-template-columns:1fr}}
-.cert-card{background:var(--bg);padding:1.8rem;transition:background .2s}
-.cert-card:hover{background:#111}
-.cert-icon{width:36px;height:36px;border-radius:2px;display:flex;align-items:center;justify-content:center;font-size:.85rem;margin-bottom:1rem;border:1px solid var(--line2)}
-.ci-a{color:var(--accent);background:var(--accent-dim);border-color:rgba(200,240,96,.2)}
-.cert-name{font-family:var(--display);font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.2rem}
-.cert-iss{font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.04em}
+/* ── WRITING ── */
+.writing-grid{display:grid;grid-template-columns:1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.writing-card{
+  background:var(--bg);padding:1.8rem 2rem;
+  display:flex;align-items:flex-start;gap:1.8rem;
+  position:relative;overflow:hidden;
+  transition:background .25s;
+  text-decoration:none;color:inherit;
+}
+.writing-card::after{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:2px;
+  background:var(--accent);transform:scaleY(0);transform-origin:top;
+  transition:transform .4s cubic-bezier(.22,1,.36,1);
+}
+.writing-card:hover{background:#0d0d10}
+.writing-card:hover::after{transform:scaleY(1)}
+.wc-meta{flex-shrink:0;display:flex;flex-direction:column;align-items:flex-end;gap:.5rem;min-width:84px}
+.wc-date{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.06em;text-transform:uppercase;line-height:1.4;text-align:right}
+.wc-stats{display:flex;flex-direction:column;align-items:flex-end;gap:.25rem}
+.wc-stat{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.04em}
+.wc-stat span{color:var(--muted)}
+.wc-body{flex:1;min-width:0}
+.wc-tag{
+  font-family:var(--mono);font-size:.54rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);margin-bottom:.55rem;display:inline-flex;align-items:center;gap:.5rem;
+}
+.wc-tag::before{content:'';width:16px;height:1px;background:var(--accent);opacity:.5}
+.wc-title{
+  font-family:var(--display);font-size:1.15rem;font-weight:700;color:#fff;
+  line-height:1.3;margin-bottom:.35rem;transition:color .2s;
+}
+.writing-card:hover .wc-title{color:var(--accent)}
+.wc-sub{font-size:.78rem;color:var(--muted);line-height:1.7;max-width:560px}
+.wc-footer{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:.9rem;flex-wrap:wrap;gap:.5rem;
+}
+.wc-read{font-family:var(--mono);font-size:.54rem;color:var(--muted2);letter-spacing:.06em}
+.wc-arr{font-family:var(--mono);font-size:.65rem;color:var(--muted2);transition:all .25s}
+.writing-card:hover .wc-arr{color:var(--accent);transform:translate(3px,-3px)}
+.writing-more{margin-top:1.2rem;display:flex;justify-content:flex-end}
+.writing-more a{
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);border:1px solid var(--line2);padding:.45rem 1rem;border-radius:2px;
+  transition:all .25s;
+}
+.writing-more a:hover{
+  border-color:var(--accent);color:var(--accent);
+  background:var(--accent-dim);box-shadow:0 0 12px var(--accent-glow);
+}
+@media(max-width:600px){
+  .writing-card{flex-direction:column;gap:1rem}
+  .wc-meta{flex-direction:row;align-items:center;justify-content:space-between;width:100%;min-width:unset}
+  .wc-stats{flex-direction:row;gap:.8rem}
+}
 
 /* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
@@ -469,7 +516,6 @@ section{padding:7rem 0;border-top:1px solid var(--line)}
 .cf input,.cf textarea{width:100%;background:#0d0d0f;border:1px solid var(--line2);color:var(--text);font-family:var(--sans);font-size:.85rem;padding:.7rem .9rem;border-radius:2px;outline:none;transition:border-color .2s,box-shadow .2s}
 .cf input:focus,.cf textarea:focus{border-color:rgba(200,240,96,.4);box-shadow:0 0 0 3px rgba(200,240,96,.06)}
 .cf textarea{min-height:100px;resize:vertical}
-/* [NEW] form states */
 .cf-ok{font-family:var(--mono);font-size:.65rem;color:var(--accent);padding:.6rem 1rem;border:1px solid rgba(200,240,96,.2);background:var(--accent-dim);border-radius:2px;display:none}
 .cf-err{font-family:var(--mono);font-size:.65rem;color:#ff6b6b;padding:.6rem 1rem;border:1px solid rgba(255,107,107,.2);background:rgba(255,107,107,.08);border-radius:2px;display:none}
 .btn-sending{opacity:.6;pointer-events:none}
@@ -522,13 +568,10 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
 
 <div id="scroll-bar"></div>
 
-<!-- [NEW] Back to Top -->
 <button id="back-top" aria-label="Back to top">↑</button>
 
-<!-- Custom cursor -->
 <div id="cursor"><div class="cursor-dot"></div><div class="cursor-ring"></div></div>
 
-<!-- Background -->
 <div class="noise" aria-hidden="true"></div>
 <div class="orbs" aria-hidden="true">
   <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
@@ -537,12 +580,13 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
   <span></span><span></span><span></span><span></span>
 </div>
 
-<!-- [NEW] Mobile Fullscreen Menu -->
+<!-- Mobile Fullscreen Menu -->
 <div class="mobile-menu" id="mobile-menu">
   <a href="#about"      class="mob-link">About</a>
   <a href="#experience" class="mob-link">Experience</a>
   <a href="#skills"     class="mob-link">Skills</a>
   <a href="#projects"   class="mob-link">Projects</a>
+  <a href="#writing"    class="mob-link">Writing</a>
   <a href="#contact"    class="mob-link">Contact</a>
 </div>
 
@@ -555,11 +599,11 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
       <a href="#experience" data-section="experience">Experience</a>
       <a href="#skills"     data-section="skills">Skills</a>
       <a href="#projects"   data-section="projects">Projects</a>
+      <a href="#writing"    data-section="writing">Writing</a>
       <a href="#contact"    data-section="contact">Contact</a>
     </div>
     <div style="display:flex;align-items:center;gap:.8rem">
       <a href="mailto:ahmedmahmoudhus@gmail.com" class="btn-hire">Hire Me</a>
-      <!-- [NEW] Hamburger -->
       <button class="nav-ham" id="nav-ham" aria-label="Toggle menu">
         <span></span><span></span><span></span>
       </button>
@@ -642,7 +686,7 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
   </div>
 </section>
 
-<!-- EXPERIENCE — [NEW] Timeline layout -->
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap">
     <div class="sec-header reveal"><span class="sec-num">02</span><h2 class="sec-title">Where I've <span>Worked</span></h2></div>
@@ -752,7 +796,6 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
   <div class="wrap">
     <div class="sec-header reveal"><span class="sec-num">04</span><h2 class="sec-title">What I've <span>Built</span></h2></div>
 
-    <!-- [NEW] Filter Buttons -->
     <div class="proj-filters reveal d1">
       <button class="pf-btn active" data-filter="all">All</button>
       <button class="pf-btn" data-filter="ai-ml">AI / ML</button>
@@ -851,10 +894,45 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
   </div>
 </section>
 
-<!-- CONTACT — [NEW] Formspree -->
+<!-- WRITING -->
+<section id="writing">
+  <div class="wrap">
+    <div class="sec-header reveal"><span class="sec-num">06</span><h2 class="sec-title">What I <span>Write</span></h2></div>
+
+    <div class="writing-grid reveal d1">
+
+      <a class="writing-card" href="https://medium.com/@ahme-mahmoud/bug-bounty-recon-methodology-c1fc7414c90a" target="_blank" rel="noopener">
+        <div class="wc-meta">
+          <span class="wc-date">May 23<br>2026</span>
+          <div class="wc-stats">
+            <span class="wc-stat">♡ <span>34</span></span>
+            <span class="wc-stat">◎ <span>1</span></span>
+            <span class="wc-stat">⇄ <span>2</span></span>
+          </div>
+        </div>
+        <div class="wc-body">
+          <span class="wc-tag">Bug Bounty · 13 min read</span>
+          <div class="wc-title">Bug Bounty Recon Methodology</div>
+          <p class="wc-sub">Bug Bounty Recon in 2026 — What Works, What's Dead, and What Most People Skip</p>
+          <div class="wc-footer">
+            <span class="wc-read">Medium · May 2026</span>
+            <span class="wc-arr">↗</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+
+    <div class="writing-more">
+      <a href="https://medium.com/@ahme-mahmoud" target="_blank" rel="noopener">All Articles on Medium ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
-    <div class="sec-header reveal"><span class="sec-num">06</span><h2 class="sec-title">Let's <span>Connect</span></h2></div>
+    <div class="sec-header reveal"><span class="sec-num">07</span><h2 class="sec-title">Let's <span>Connect</span></h2></div>
     <div class="contact-grid">
       <div class="reveal d1">
         <p class="contact-p">Looking to collaborate on security research, or AI-driven detection? Open to internships, freelance work, and research partnerships.</p>
@@ -878,7 +956,6 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
         </div>
       </div>
       <div class="reveal d2">
-        <!-- ↓ استبدل YOUR_FORM_ID بالـ ID من formspree.io -->
         <form class="cf" id="cf" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="cf-row">
             <div><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" placeholder="Your name" required></div>
@@ -921,7 +998,7 @@ window.addEventListener('scroll', () => {
   bar.style.width = Math.min(pct, 100) + '%';
 }, {passive:true});
 
-/* ── [NEW] BACK TO TOP ── */
+/* ── BACK TO TOP ── */
 const btt = document.getElementById('back-top');
 window.addEventListener('scroll', () => {
   btt.classList.toggle('show', window.scrollY > 400);
@@ -934,7 +1011,7 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 50);
 }, {passive:true});
 
-/* ── [NEW] HAMBURGER MENU ── */
+/* ── HAMBURGER MENU ── */
 const ham = document.getElementById('nav-ham');
 const mob = document.getElementById('mobile-menu');
 ham.addEventListener('click', () => {
@@ -951,7 +1028,7 @@ document.querySelectorAll('.mob-link').forEach(a => {
 });
 
 /* ── ACTIVE NAV ── */
-const sections = ['about','experience','skills','projects','education','contact'];
+const sections = ['about','experience','skills','projects','education','writing','contact'];
 const navLinks = document.querySelectorAll('.nav-links a');
 const io2 = new IntersectionObserver(entries => {
   entries.forEach(e => {
@@ -978,7 +1055,7 @@ window.addEventListener('mousemove', e => {
   ring.style.left=rx+'px'; ring.style.top=ry+'px';
   requestAnimationFrame(animRing);
 })();
-document.querySelectorAll('a,button,.tag,.sp,.tl-tool,.pt').forEach(el=>{
+document.querySelectorAll('a,button,.tag,.sp,.tl-tool,.pt,.writing-card').forEach(el=>{
   el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-hover'));
   el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-hover'));
 });
@@ -989,7 +1066,7 @@ const ro = new IntersectionObserver(entries => {
 },{threshold:.06});
 document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 
-/* ── [NEW] TIMELINE DOT HIGHLIGHT ── */
+/* ── TIMELINE DOT HIGHLIGHT ── */
 const tlObs = new IntersectionObserver(entries => {
   entries.forEach(e => e.target.classList.toggle('vis', e.isIntersecting));
 },{threshold:.5});
@@ -1008,7 +1085,7 @@ document.querySelectorAll('.proj-card').forEach(card=>{
   card.addEventListener('mouseleave',()=>{ card.style.transform=''; });
 });
 
-/* ── [NEW] PROJECTS FILTER ── */
+/* ── PROJECTS FILTER ── */
 document.querySelectorAll('.pf-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.pf-btn').forEach(b => b.classList.remove('active'));
@@ -1051,7 +1128,7 @@ const sObs = new IntersectionObserver(entries=>{
 const hs = document.querySelector('.hero-stats');
 if(hs) sObs.observe(hs);
 
-/* ── [NEW] CONTACT FORM — Formspree ── */
+/* ── CONTACT FORM — Formspree ── */
 const form   = document.getElementById('cf');
 const cfBtn  = document.getElementById('cf-btn');
 const cfOk   = document.getElementById('cfOk');
