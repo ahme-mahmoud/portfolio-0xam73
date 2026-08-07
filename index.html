@@ -849,16 +849,20 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
     <div class="sec-header reveal"><span class="sec-num">01</span><h2 class="sec-title">About <span>Me</span></h2></div>
     <div class="about-grid">
       <div class="reveal d1">
-        <p class="about-p">I'm <strong>Ahmed Mahmoud</strong>, a penetration tester focused on offensive security, vulnerability research, and security engineering.</p>
-        <p class="about-p">My work spans <strong>web, API, and network penetration testing</strong>, with a strong interest in identifying exploitable weaknesses, analyzing attack paths, and understanding how real-world systems can be broken and defended. I'm also active in bug bounty hunting, with a focus on vulnerabilities such as <strong>IDOR, SSRF, authentication bypass, broken access control, and business logic flaws</strong>.</p>
-        <p class="about-p">Alongside offensive security, I build cybersecurity projects that apply <strong>AI, machine learning, and deep learning</strong> to network traffic analysis, anomaly detection, and threat monitoring, including detection and response workflows for enterprise and industrial environments.</p>
-        <p class="about-p">I'm currently studying Network &amp; Cybersecurity at <strong>Elsewedy University of Technology</strong>, while continuously sharpening my skills through hands-on labs, applied security research, technical writing, and real-world cybersecurity projects.</p>
+        <p class="about-p">I'm <strong>Ahmed Mahmoud</strong>, a penetration tester passionate about offensive security, vulnerability research, and application security.</p>
+        <p class="about-p">My primary focus is <strong>web, API, and network penetration testing</strong>, identifying exploitable vulnerabilities, analyzing attack paths, and understanding how real-world systems can be attacked and secured. I'm also active in <strong>bug bounty hunting</strong>, with a focus on vulnerabilities such as <strong>IDOR, SSRF, authentication bypass, broken access control, and business logic flaws</strong>.</p>
+        <p class="about-p">Alongside offensive security, I build practical cybersecurity projects covering <strong>digital forensics</strong> and <strong>AI-powered threat detection</strong>, applying <strong>AI, machine learning, and deep learning</strong> to network traffic analysis, anomaly detection, and security monitoring.</p>
+        <p class="about-p">I'm currently studying <strong>Network &amp; Cybersecurity</strong> at <strong>Elsewedy University of Technology</strong>, continuously improving my skills through hands-on labs, security research, bug bounty practice, technical writing, and open-source security projects.</p>
         <div class="about-tags">
           <span class="tag">Web Penetration Testing</span><span class="tag">API Security</span>
           <span class="tag">Network Penetration Testing</span><span class="tag">Digital Forensics</span>
-          <span class="tag">ML-Based Threat Detection</span><span class="tag">Bug Bounty Hunting</span>
-          <span class="tag">Vulnerability Research</span><span class="tag">ICS/OT Security</span>
+          <span class="tag">AI for Cybersecurity</span><span class="tag">Bug Bounty Hunting</span>
+          <span class="tag">Vulnerability Research</span><span class="tag">Open-Source Security Tool Development</span>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
         <a href="./CV_Ahmed_Mahmoud.pdf" download class="btn btn-cv-about">
           <svg width="13" height="13" viewBox="0 0 12 12" fill="none" style="flex-shrink:0"><path d="M6 1v7M3 6l3 3 3-3M1 10h10" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           Download CV
@@ -930,7 +934,7 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
       <div class="tl-item">
         <div class="tl-dot"></div>
         <div class="tl-date">Aug – Sep 2025 <span class="tl-badge">Training</span></div>
-        <div class="tl-role">Cybersecurity Training</div>
+        <div class="tl-role">Cyber Security Internship</div>
         <div class="tl-org">NTI</div>
         <p class="tl-desc">Hands-on training covering vulnerability scanning, web app security, cloud security, and SIEM operations with enterprise-grade tooling at Smart Village.</p>
         <div class="tl-tools"><span class="tl-tool">Nessus</span><span class="tl-tool">OpenVAS</span><span class="tl-tool">Splunk</span><span class="tl-tool">ELK</span><span class="tl-tool">WPScan</span></div>
@@ -1234,18 +1238,7 @@ footer{border-top:1px solid var(--line);padding:2rem 0}
         </div>
       </div>
       <div class="reveal d2">
-<!--
-  ⚙️ خطوات تفعيل الفورم بشكل فعلي (دلوقتي بيستخدم mailto احتياطي لو الـ ID مش متغيّر):
 
-  الخيار الأسهل (بدون حساب) — Web3Forms:
-    1) روح https://web3forms.com وادخل إيميلك بس، هياخد لك access key فورًا (مفيش تسجيل)
-    2) غيّر action لـ: https://api.web3forms.com/submit
-    3) ضيف هذا الحقل جوه الفورم: <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY">
-
-  أو Formspree (لو عايز Dashboard لمتابعة الرسائل):
-    1) https://formspree.io → اعمل فورم جديد وهيديك form ID
-    2) بدّل YOUR_FORM_ID تحت بالـ ID الحقيقي
--->
         <form class="cf" id="cf" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
           <div class="cf-row">
             <div><label for="cf-name">Name</label><input id="cf-name" name="name" type="text" placeholder="Your name" required></div>
@@ -1402,7 +1395,6 @@ form.addEventListener('submit', async e => {
   cfErr.style.display = 'none';
 
   if (!isConfigured) {
-    // لسه مفيش Formspree ID حقيقي — نفتح إيميل المستخدم جاهز بالرسالة، عشان الفورم يفضل شغّال بدل ما يفضل يفشل في صمت.
     const name = form.elements['name'].value;
     const email = form.elements['email'].value;
     const subject = form.elements['subject'].value || 'Portfolio contact';
